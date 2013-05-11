@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+	<title>mouseOverTooltip Example Page</title>
+	<link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/themes/ui-lightness/jquery-ui.min.css" rel="stylesheet">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js""></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+  <script src="mouseOverTooltip.js"></script>
+</head>
+<body>
+  <div class="tooltip" style="border:2px solid; width: 100px;">
+    <span>test 1</span>
+    <div class="tooltip-content" style="display: none;">test content 1</div>
+  </div>
+  <br/>
+  <div class="tooltip" style="border:2px solid; width: 100px;">
+    <span>test 2</span>
+    <div class="tooltip-content" style="display: none;">test content 2</div>
+  </div>
+  <script type="text/javascript">
+    $( '.tooltip' ).mouseOverTooltip( {
+        items: "div",
+        position: ({
+          my: "center right",
+          at: "left+200 center",
+        }),
+        content: function( ) {
+          return $(this).children('.tooltip-content').html();
+        },
+        closeTimeout: 500
+      });
+  </script>
+</body>
+</html>
