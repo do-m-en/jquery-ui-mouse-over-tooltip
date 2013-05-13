@@ -1,7 +1,7 @@
 /*
  * jQuery mouseOverTooltip UI Widget 1.0 that wraps jQuery UI Tooltip Widget
  * and adds functionality for keeping tooltip opened on hover
- * Copyright (c) 2013 Gamabit d.o.o. (http://www.gamabit.com) 
+ * Copyright (c) 2013 Gamabit d.o.o. (http://www.gamabit.com)
  *
  * Author:
  *   Domen Vrankar
@@ -16,12 +16,12 @@
  */
 (function ($) {
   $.widget("gamabit.mouseOverTooltip", $.ui.tooltip, {
-      	open: function( event ) {
-      	  $(".close-pending").each( function() {
-      	      var element = $(this);
-      	      element.addClass("close-force");
-      	      element.mouseOverTooltip("close");
-      	    } );
+        open: function( event ) {
+          $(".close-pending").each( function() {
+              var element = $(this);
+              element.addClass("close-force");
+              element.mouseOverTooltip("close");
+            } );
           $.ui.tooltip.prototype.open.call(this, event);
         },
 
@@ -34,7 +34,7 @@
               },
               that.options.closeTimeout
             );
-          
+
           var target = $( event ? event.currentTarget : that.element );
           that._find( target ).mouseenter( function() {
               clearTimeout( that._closeTimeoutElement );
