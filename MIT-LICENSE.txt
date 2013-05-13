@@ -1,4 +1,3 @@
-Copyright (c) 2013 Domen Vrankar
 Copyright (c) 2013 Gamabit d.o.o. (http://www.gamabit.com)
 
 Permission is hereby granted, free of charge, to any person obtaining

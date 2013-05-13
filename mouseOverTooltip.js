@@ -1,16 +1,18 @@
 /*
  * jQuery mouseOverTooltip UI Widget 1.0 that wraps jQuery UI Tooltip Widget
  * and adds functionality for keeping tooltip opened on hover
- * Copyright (c) 2013 Domen Vrankar
- * Copyright (c) 2013 Gamabit d.o.o. (http://www.gamabit.com)
+ * Copyright (c) 2013 Gamabit d.o.o. (http://www.gamabit.com) 
+ *
+ * Author:
+ *   Domen Vrankar
  *
  * Depends:
  *   - jQuery 1.8.3+
  *   - jQuery UI 1.9.2+
  *   - jquery.ui.tooltip.js
  *
- * Released under the MIT license
- * https://github.com/do-m-en/jquery-ui-mouse-over-tooltip/blob/master/MIT-LICENSE.txt
+ * License:
+ *   MIT - https://github.com/do-m-en/jquery-ui-mouse-over-tooltip/blob/master/MIT-LICENSE.txt
  */
 (function ($) {
   $.widget("gamabit.mouseOverTooltip", $.ui.tooltip, {
@@ -20,7 +22,7 @@
       	      element.addClass("close-force");
       	      element.mouseOverTooltip("close");
       	    } );
-          $.ui.tooltip.prototype.open.apply(this, event);
+          $.ui.tooltip.prototype.open.call(this, event);
         },
 
       close: function( event ) {
@@ -28,7 +30,7 @@
           this.element.addClass("close-pending");
           var that = this;
           that._closeTimeoutElement = setTimeout( function() {
-                $.ui.tooltip.prototype.close.apply(that, event);
+                $.ui.tooltip.prototype.close.call(that, event);
               },
               that.options.closeTimeout
             );
@@ -45,7 +47,7 @@
           clearTimeout( this._closeTimeoutElement );
           this.element.removeClass("close-pending");
           this.element.removeClass("close-force");
-          $.ui.tooltip.prototype.close.apply(this, event);
+          $.ui.tooltip.prototype.close.call(this, event);
         }
       }
     } );
